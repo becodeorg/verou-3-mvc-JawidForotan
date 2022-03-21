@@ -1,5 +1,6 @@
 <?php
-require"config.php";
+require "config.php";
+
 class Database
 {
     private string $host;
@@ -31,4 +32,6 @@ class Database
         }
     }
 }
+// $connection = new Database($config["host"], $config["user"], $config["password"], $config["dbName"]);
+// $connection->connect();
 ?>
