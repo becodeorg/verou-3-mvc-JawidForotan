@@ -18,12 +18,11 @@ class Database
         $this->dbname = $dbname;
     }
 
-    public function connect(): void
+    public function connection(): void
     {
         $dsn = "mysql:host={$this->host}; dbname={$this->dbname}";
         try{
             $this->connection = new PDO($dsn, $this->user, $this->password);
-            echo "Success";
         }catch(PDOException $error){
             $errorMassage = "Database error";
             $errorMassage .= $error->getMessage();
@@ -32,6 +31,5 @@ class Database
         }
     }
 }
-// $connection = new Database($config["host"], $config["user"], $config["password"], $config["dbName"]);
-// $connection->connect();
+
 ?>
