@@ -19,26 +19,22 @@
                         <tr>
                             <th>Id</th>
                             <th>Title</th>
-                            <th>Description</th>
                             <th>Publish date</th>
                             <th>Delete</th>
                             <th>Update</th>
-                            
                         </tr>
                     </thead>
                     <?php
                     foreach($articles as $article){
                         $id = $article->id;
                         $title = $article->title;
-                        $description = $article->description;
                         $publishDate = $article->publishDate;
                         print'<tbody>
                         <tr>
-                        <td>'.$id.'</td>
-                        <td>'.$title.'</td>
-                        <td>'.$description.'</td>
+                        <td><a href="./index.php?page=articles-show&id='.$id.'">'.$id.'</a></td>
+                        <td><b>'.$title.'</b></td>
                         <td>'.$publishDate.'</td>               
-                        <td><button class="btn btn-danger"><a href="./index.php?action=delete&id='.$id.'" class="text-light text-decoration-none">Delete</a></button></td>
+                        <td><button class="btn btn-danger"><a href="../index.php?action=delete&id='.$id.'" class="text-light text-decoration-none">Delete</a></button></td>
                         <td><button class="btn btn-primary"><a href="./index.php?action=update&id='.$id.'" class="text-light text-decoration-none">Update</a></button></td>
                         </tr>
                         </tbody>';

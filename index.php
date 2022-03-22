@@ -14,15 +14,12 @@ require 'Controller/ArticleController.php';
 require "./DB/config.php";
 require "./DB/database.php";
 
-
 // Get the current page to load
 // If nothing is specified, it will remain empty (home should be loaded)
 $page = $_GET['page'] ?? null;
 
 $DB = new Database($config["host"], $config["user"], $config["password"], $config["dbName"]);
 $DB->connection();
-
-
 
 // Load the controller
 // It will *control* the rest of the work to load the page
@@ -36,6 +33,8 @@ switch ($page) {
         break;
     case 'articles-show':
         // TODO: detail page
+        (new ArticleController($DB))->show();
+        break;
     case 'home':
     default:
         (new HomepageController())->index();

@@ -20,6 +20,6 @@ class Article
     public function formatPublishDate($format = 'DD-MM-YYYY')
     {
         // TODO: return the date in the required format
-        $this->publishDate = $format;
+        $date = date_create($this->publishDate);
     }
 }
