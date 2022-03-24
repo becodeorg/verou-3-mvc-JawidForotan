@@ -22,31 +22,23 @@
                     </tr>
                 </thead>
                 <?php
-                    $id = $article->id;
-                    $title = $article->title;
-                    $description = $article->description;
-                    $publishDate = $article->publishDate;
-                    $author = $article->author;
-                    $image = $article->image;
                     print'<tbody>
                     <tr>
-                    <td>'.$id.'</td>
-                    <td>'.$title.'</td>
-                    <td><textarea class="form-control" row="3">'.$description.'</textarea></td>
-                    <td>'.$publishDate.'</td>               
-                    <td>'.$author.'</td>               
-                    <td>'.$image.'</td>               
+                    <td>'.$article->id.'</td>
+                    <td>'.$article->title.'</td>
+                    <td><textarea class="form-control" row="3">'.$article->description.'</textarea></td>
+                    <td>'.$article->publishDate.'</td>               
+                    <td>'.$article->author.'</td>               
+                    <td>'.$article->image.'</td>               
                     </tr>
                     </tbody>';
-                    ?>
+                ?>
             </table>
             <div class="d-flex justify-content-center">
                 <a href="#" class="m-2"><span>&#8592;</span>Previous article</a>
                 <a href="#" class="m-2">Next article<span>&#8594;</span></a>
             </div>
-            
         </div>  
     </body>
 </html>
-
 <?php require 'View/includes/footer.php'?>

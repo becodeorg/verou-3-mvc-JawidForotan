@@ -54,6 +54,30 @@ class ArticleController
         $article = new Article($element['id'], $element['title'], $element['description'], $element['publish_date'], $element["author"], $element["image"]);
         require "View/articles/show.php";
     }
+    
+    // Create new article
+    public function create()
+    {
+        // Get data from the form
+        
+            if(isset($_POST["submit"])){
+                $title = $_POST["title"];
+                $description = $_POST["description"];
+                $publishDate = $_POST["publishDate"];
+                $author = $_POST["author"];
+                $image = $_POST["image"];
+                echo "Echo after post inputs";
+
+                // Insert data into database
+                $sql = "INSERT INTO `articles` ('title', 'description', 'publish_date', 'author', 'image')
+                VALUES ($title, $description, $publishDate, $author, $image)";
+                $statement = $this->database->connection->prepare($sql);
+                $statement->execute();
+                header("Location: index.php");
+            }
+
+        require "View/create.php"; 
+    }
 }
 
 ?>

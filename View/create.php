@@ -1,3 +1,4 @@
+<?php echo "Hello from create form"?>
 <!doctype html>
 <html lang="en">
 <head> 
@@ -9,7 +10,7 @@
 <body>
     <div class="container my-5 p-4 bg-secondary">
         <div>
-            <button class="btn btn-primary"><a href="../index.php" class="text-light text-decoration-none">Home</a></button>
+            <button class="btn btn-primary"><a href="index.php" class="text-light text-decoration-none">Home</a></button>
         </div>
         <form action="../index.php?action=create" method="POST" class="my-5">
                 <h1>Add new article</h1>
@@ -23,12 +24,16 @@
                     <textarea class="form-control" name="description" rows="3" placeholder="Description"></textarea>
                 </div>
                 <div class="form-group my-3">
+                    <label class="form-label fw-bold">Publish date:</label>
+                    <input type="text" class="form-control" name="publishDate" placeholder="Publish date">
+                </div>
+                <div class="form-group my-3">
                     <label class="form-label fw-bold">Author:</label>
-                    <input type="text" class="form-control" name="publishDate" placeholder="Author">
+                    <input type="text" class="form-control" name="author" placeholder="Author">
                 </div>
                 <div class="form-group my-3">
                     <label class="form-label fw-bold">Image:</label>
-                    <input type="text" class="form-control" name="publishDate" placeholder="Image">
+                    <input type="text" class="form-control" name="image" placeholder="Image">
                 </div>
                 <div class="form-group my-3 ">
                     <button  name="submit" class="btn btn-primary">Add new article</button>

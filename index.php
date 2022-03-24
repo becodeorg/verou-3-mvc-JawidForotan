@@ -35,6 +35,10 @@ switch ($page) {
         // TODO: detail page
         (new ArticleController($DB))->show();
         break;
+    case 'articles-create':
+        (new ArticleController($DB))->create();
+        echo "Hello from article controller";
+        break;
     case 'home':
     default:
         (new HomepageController())->index();
