@@ -17,6 +17,8 @@
                         <th>Title</th>
                         <th>Description</th>
                         <th>Publish date</th>
+                        <th>Author</th>
+                        <th>Image</th>
                     </tr>
                 </thead>
                 <?php
@@ -24,18 +26,25 @@
                     $title = $article->title;
                     $description = $article->description;
                     $publishDate = $article->publishDate;
+                    $author = $article->author;
+                    $image = $article->image;
                     print'<tbody>
                     <tr>
                     <td>'.$id.'</td>
                     <td>'.$title.'</td>
-                    <td>'.$description.'</td>
+                    <td><textarea class="form-control" row="3">'.$description.'</textarea></td>
                     <td>'.$publishDate.'</td>               
+                    <td>'.$author.'</td>               
+                    <td>'.$image.'</td>               
                     </tr>
                     </tbody>';
                     ?>
             </table>
-            <a href="#">Previous article</a>
-            <a href="#">Next article</a>
+            <div class="d-flex justify-content-center">
+                <a href="#" class="m-2"><span>&#8592;</span>Previous article</a>
+                <a href="#" class="m-2">Next article<span>&#8594;</span></a>
+            </div>
+            
         </div>  
     </body>
 </html>

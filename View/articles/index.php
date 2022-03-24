@@ -11,7 +11,7 @@
     <body>
             <div class="container my-5">
                 <div class="d-flex justify-content-start my-4">
-                <button class="btn btn-primary me-5"><a href="View/create.php?action=create" class="text-light text-decoration-none">Add New Article</a></button>
+                <button class="btn btn-primary me-5"><a href="View/create.php?action=create" class="text-light text-decoration-none">New article</a></button>
                 <h1>Articles Page</h1>
                 </div>
                 <table class="table table-secondary">

@@ -39,7 +39,7 @@ class ArticleController
         $articles = [];
         foreach ($rawArticles as $rawArticle) {
             // We are converting an article from a "dumb" array to a much more flexible class
-            $articles[] = new Article($rawArticle['id'], $rawArticle['title'], $rawArticle['description'], $rawArticle['publish_date']);
+            $articles[] = new Article($rawArticle['id'], $rawArticle['title'], $rawArticle['description'], $rawArticle['publish_date'], $rawArticle["author"], $rawArticle["image"]);
         }
         return $articles;
     }
@@ -51,7 +51,7 @@ class ArticleController
         $statement = $this->database->connection->prepare($sql);
         $statement->execute();
         $element = $statement->fetch();
-        $article = new Article($element['id'], $element['title'], $element['description'], $element['publish_date']);
+        $article = new Article($element['id'], $element['title'], $element['description'], $element['publish_date'], $element["author"], $element["image"]);
         require "View/articles/show.php";
     }
 }
