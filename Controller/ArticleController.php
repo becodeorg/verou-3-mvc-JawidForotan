@@ -58,24 +58,27 @@ class ArticleController
     // Create new article
     public function create()
     {
-        // Get data from the form
-        
+    // Get data from the form
+        if(!empty($_POST["title"]) && (!empty($_POST["description"])) && (!empty($_POST["publishDate"]))
+        && (!empty($_POST["author"]))
+        && (!empty($_POST["image"]))){
             if(isset($_POST["submit"])){
+
                 $title = $_POST["title"];
                 $description = $_POST["description"];
                 $publishDate = $_POST["publishDate"];
                 $author = $_POST["author"];
-                $image = $_POST["image"];
-                echo "Echo after post inputs";
+                $image = $_POST["image"]; 
 
                 // Insert data into database
-                $sql = "INSERT INTO `articles` ('title', 'description', 'publish_date', 'author', 'image')
-                VALUES ($title, $description, $publishDate, $author, $image)";
+                $sql = "INSERT INTO `articles` (title, description, publish_date, author, image)
+                VALUES ('$title', '$description', '$publishDate', '$author', '$image')";
                 $statement = $this->database->connection->prepare($sql);
                 $statement->execute();
                 header("Location: index.php");
             }
-
+        }
+        print'<div class="container alert alert-danger d-flex justify-content-center mt-5 w-25"><h3>All the fields must be filled!</h3></div>';
         require "View/create.php"; 
     }
 }

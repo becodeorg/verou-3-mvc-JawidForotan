@@ -37,7 +37,6 @@ switch ($page) {
         break;
     case 'articles-create':
         (new ArticleController($DB))->create();
-        echo "Hello from article controller";
         break;
     case 'home':
     default:

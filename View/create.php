@@ -1,4 +1,3 @@
-<?php echo "Hello from create form"?>
 <!doctype html>
 <html lang="en">
 <head> 
@@ -12,7 +11,7 @@
         <div>
             <button class="btn btn-primary"><a href="index.php" class="text-light text-decoration-none">Home</a></button>
         </div>
-        <form action="../index.php?action=create" method="POST" class="my-5">
+        <form action="index.php?page=articles-create" method="POST" class="my-5">
                 <h1>Add new article</h1>
                 <hr class="mb-5">
                 <div class="form-group my-3">

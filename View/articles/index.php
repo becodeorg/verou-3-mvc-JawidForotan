@@ -25,24 +25,23 @@
                         </tr>
                     </thead>
                     <?php
-                    foreach($articles as $article){
-                        $id = $article->id;
-                        $title = $article->title;
-                        $publishDate = $article->publishDate;
-                        print'<tbody>
-                        <tr>
-                        <td><a href="./index.php?page=articles-show&id='.$id.'">'.$id.'</a></td>
-                        <td><b>'.$title.'</b></td>
-                        <td>'.$publishDate.'</td>               
-                        <td><button class="btn btn-danger"><a href="../index.php?action=delete&id='.$id.'" class="text-light text-decoration-none">Delete</a></button></td>
-                        <td><button class="btn btn-primary"><a href="./index.php?action=update&id='.$id.'" class="text-light text-decoration-none">Update</a></button></td>
-                        </tr>
-                        </tbody>';
-                    }
-                    ?>
+                        foreach($articles as $article){
+                            $id = $article->id;
+                            $title = $article->title;
+                            $publishDate = $article->publishDate;
+                            print'<tbody>
+                            <tr>
+                            <td><a href="./index.php?page=articles-show&id='.$id.'">'.$id.'</a></td>
+                            <td><b>'.$title.'</b></td>
+                            <td>'.$publishDate.'</td>               
+                            <td><button class="btn btn-danger"><a href="../index.php?action=delete&id='.$id.'" class="text-light text-decoration-none">Delete</a></button></td>
+                            <td><button class="btn btn-primary"><a href="./index.php?action=update&id='.$id.'" class="text-light text-decoration-none">Update</a></button></td>
+                            </tr>
+                            </tbody>';
+                        }
+                        ?>
                 </table>  
             </div>
         </body>
 </html>
-
 <?php require 'View/includes/footer.php'?>
