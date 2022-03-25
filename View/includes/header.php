@@ -10,7 +10,7 @@
   <body>
         <header class="container-fluid bg-dark text-light p-4">
             <a href="index.php" class="text-decoration-none text-light p-3">Home</a>
-            <a href="index.php?page=articles" class="text-decoration-none text-light p-3">Articles</a>
+            <a href="index.php?page=articles-index" class="text-decoration-none text-light p-3">Articles</a>
         </header> 
     </body>
 </html>

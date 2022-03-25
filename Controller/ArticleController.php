@@ -3,7 +3,6 @@
 declare(strict_types = 1);
 require_once "./Model/Article.php";
 
-
 class ArticleController
 {
     private Database $database;
@@ -44,6 +43,7 @@ class ArticleController
         return $articles;
     }
 
+    // Get by id
     public function show() 
     {
         // TODO: this can be used for a detail page
@@ -55,7 +55,7 @@ class ArticleController
         require "View/articles/show.php";
     }
     
-    // Create new article
+    // Create
     public function create()
     {
     // Get data from the form
@@ -82,6 +82,7 @@ class ArticleController
         require "View/create.php"; 
     }
     
+    // Delete
     public function delete()
     {
         $sql = "DELETE FROM `articles` WHERE `id` = {$_GET['id']}";
@@ -89,10 +90,11 @@ class ArticleController
         $statement->execute();
         header("Location: index.php?page=articles-index");
     }
-
+    
+    // Update
     public function edit()
     {
-        // Show element in update form
+        // Show values in update form
         $sql = "SELECT * FROM `articles` WHERE `id` = '{$_GET["id"]}'";
         $statement = $this->database->connection->prepare($sql);
         $statement->execute();
