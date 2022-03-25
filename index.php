@@ -38,6 +38,12 @@ switch ($page) {
     case 'articles-create':
         (new ArticleController($DB))->create();
         break;
+    case 'articles-update':
+        (new ArticleController($DB))->edit();
+        break;    
+    case 'articles-delete':
+        (new ArticleController($DB))->delete();
+        break;
     case 'home':
     default:
         (new HomepageController())->index();

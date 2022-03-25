@@ -63,7 +63,6 @@ class ArticleController
         && (!empty($_POST["author"]))
         && (!empty($_POST["image"]))){
             if(isset($_POST["submit"])){
-
                 $title = $_POST["title"];
                 $description = $_POST["description"];
                 $publishDate = $_POST["publishDate"];
@@ -75,14 +74,47 @@ class ArticleController
                 VALUES ('$title', '$description', '$publishDate', '$author', '$image')";
                 $statement = $this->database->connection->prepare($sql);
                 $statement->execute();
-                header("Location: index.php");
+                header("Location: index.php?page=articles-index");
             }
-        }
+        }elseif(isset($_POST["submit"])){
         print'<div class="container alert alert-danger d-flex justify-content-center mt-5 w-25"><h3>All the fields must be filled!</h3></div>';
+        }
         require "View/create.php"; 
     }
-}
+    
+    public function delete()
+    {
+        $sql = "DELETE FROM `articles` WHERE `id` = {$_GET['id']}";
+        $statement = $this->database->connection->prepare($sql);
+        $statement->execute();
+        header("Location: index.php?page=articles-index");
+    }
 
+    public function edit()
+    {
+        // Show element in update form
+        $sql = "SELECT * FROM `articles` WHERE `id` = '{$_GET["id"]}'";
+        $statement = $this->database->connection->prepare($sql);
+        $statement->execute();
+        $element = $statement->fetch();
+        $article = new Article($element['id'], $element['title'], $element['description'], $element['publish_date'], $element["author"], $element["image"]);
+        
+        // Update values
+        if(isset($_POST["update"])){
+            $title = $_POST["title"];
+            $description = $_POST["description"];
+            $publishDate = $_POST["publishDate"];
+            $author = $_POST["author"];
+            $image = $_POST["image"];
+            $updateSql = "UPDATE `articles` SET title = '$title', description = '$description',
+            publish_date = '$publishDate', author = '$author', image = '$image' WHERE `id` = '{$_GET['id']}'";
+            $updateStatement = $this->database->connection->prepare($updateSql);
+            $updateStatement->execute();
+            header("Location: index.php?page=articles-index");
+        }
+        require "View/update.php";
+    }
+}
 ?>
 
 
